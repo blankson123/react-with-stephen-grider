@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import SideBar from "./components/sidebar.component";
+import Route from "./components/route.component";
+import AccordionPage from "./pages/accordion.page";
+import DropdownPage from "./pages/dropdown.page";
+import ButtonPage from "./pages/button.page";
+import ModalPage from "./pages/modal.page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+      <SideBar />
+      <div className="col-span-5">
+        <Route path="/accordion">
+          <AccordionPage />
+        </Route>
+        <Route path="/">
+          <DropdownPage />
+        </Route>
+        <Route path="/buttons">
+          <ButtonPage />
+        </Route>
+        <Route path="/modal">
+          <ModalPage />
+        </Route>
+      </div>
     </div>
   );
 }
-
 export default App;
